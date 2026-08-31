@@ -1,5 +1,9 @@
 # ZhuaTech Budget｜知华科技全面预算管理系统
 
+## 企业级增强：预算调拨治理
+
+新增期间、来源余额、职责分离、双方责任中心、财务审批和年度计划影响门禁，详见 [预算调拨治理](docs/ENTERPRISE_BUDGET_TRANSFER.md)。
+
         > 预算编制、审批、下达、控制和分析形成闭环。
 
         [![Java 21](https://img.shields.io/badge/Java-21-315a70)](backend/pom.xml) [![Vue 3](https://img.shields.io/badge/Vue-3-42b883)](frontend/package.json) [![MySQL 8](https://img.shields.io/badge/MySQL-8-4479a1)](compose.yaml) [![个人非商用](https://img.shields.io/badge/license-personal%20non--commercial-b47b3a)](LICENSE)
