@@ -1,5 +1,7 @@
 # ZhuaTech Budget｜知华科技全面预算管理系统
 
+[简体中文](README.md) | [English](README.en.md)
+
 ## 企业级增强：预算调拨治理
 
 新增期间、来源余额、职责分离、双方责任中心、财务审批和年度计划影响门禁，详见 [预算调拨治理](docs/ENTERPRISE_BUDGET_TRANSFER.md)。
