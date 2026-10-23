@@ -1,0 +1,88 @@
+{
+  "slug": "budget",
+  "title": "冻结预算与在途承诺净余量",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "approvedBudget",
+      "label": "批准总预算",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "executed",
+      "label": "已执行金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "openCommitment",
+      "label": "未执行承诺金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "frozen",
+      "label": "独立冻结金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "newRequest",
+      "label": "本次拟申请",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "occupiedBefore",
+      "label": "原已占用及冻结"
+    },
+    {
+      "key": "availableBefore",
+      "label": "申请前净可用"
+    },
+    {
+      "key": "candidateAvailableAfter",
+      "label": "拟申请后净可用"
+    },
+    {
+      "key": "requestShortfall",
+      "label": "申请缺口"
+    }
+  ],
+  "description": "将已执行、在途未执行承诺和冻结额度分开，核对拟新增申请，避免冻结和承诺重复计入可用余额。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "approvedBudget": "100000",
+        "executed": "30000",
+        "openCommitment": "20000",
+        "frozen": "10000",
+        "newRequest": "30000"
+      }
+    ]
+  }
+}

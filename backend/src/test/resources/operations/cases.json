@@ -1,0 +1,55 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "occupiedBefore": "#60000",
+      "availableBefore": "#40000",
+      "candidateAvailableAfter": "#10000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "newRequest": "40001"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "requestShortfall": "#1"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "newRequest": "40000"
+    },
+    "expected": {
+      "decision": "PASS",
+      "candidateAvailableAfter": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "frozen": "60000"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "availableBefore": "#-10000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "approvedBudget": "0",
+      "executed": "0",
+      "openCommitment": "0",
+      "frozen": "0",
+      "newRequest": "0"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]
