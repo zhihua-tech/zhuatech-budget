@@ -1,0 +1,86 @@
+{
+  "slug": "budget",
+  "title": "预算占用与执行金额预检",
+  "fields": [
+    {
+      "key": "budget_no",
+      "label": "预算行号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "department",
+      "label": "部门",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "approved",
+      "label": "批准预算",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "spent",
+      "label": "已支出",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "committed",
+      "label": "已承诺",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "request",
+      "label": "本次申请",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    }
+  ],
+  "unique": [
+    [
+      "budget_no"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "SUM_LE",
+      "args": [
+        "spent",
+        "committed",
+        "approved"
+      ],
+      "code": "BUDGET_OCCUPIED",
+      "message": "已支出加已承诺不得超过批准预算",
+      "bad": {
+        "spent": "90000"
+      }
+    },
+    {
+      "op": "LE",
+      "args": [
+        "request",
+        "approved"
+      ],
+      "code": "BUDGET_REQUEST",
+      "message": "申请不得超过批准预算（本模板不代表跨行余额锁定）",
+      "bad": {
+        "request": "100001"
+      }
+    }
+  ],
+  "sampleCsv": "budget_no,department,approved,spent,committed,request\nBUD-001,DEPT-01,100000,30000,20000,10000\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
